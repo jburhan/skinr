@@ -23,31 +23,31 @@ I built:
 
 **Project Phases**
 The project was completed within 5 phases:
-Phase 1 — Hardware Setup + MVP Definition
+  Phase 1 — Hardware Setup + MVP Definition
 This is the phase where I gathered and put together the Pi, the camera, the mirror, controlled for consistent brightness, built basic iOS UI skeleton, and established Pi → iPhone capture flow by running server.py, testing the capture function on the iOS app.
-Phase 2 — Deterministic CV on Python (Exploration)
+  Phase 2 — Deterministic CV on Python (Exploration)
 In this phase, I built and tested the logic in Python on my computer. This is where I designed pigmentation and redness scoring, tested threshold behavior, identified effects of noise and illumination drift. I took three sample images and analyzed them using the logic that I built
-Phase 3 — Port CV to iOS (Swift)
+  Phase 3 — Port CV to iOS (Swift)
 In this phase, I ported the Python logic to full Swift (SkinAnalyzer.swift) so I could process the images on-device. This allowed GPU-accelerated pixel processing, overlay rendering, capture history + per-capture scoring, baseline resets + calibration sliders
-Phase 4 — Progress Tracking, Ingredient Recommendation, and UI Polish
+  Phase 4 — Progress Tracking, Ingredient Recommendation, and UI Polish
 In this phase, I added more features to the app. Such as: 
 Daily median score chart, I used the median to remove outliers caused by environmental reasons, history view with timestamps
 Recommended ingredients to use based on pigmentation and redness scores:
 I did research on common active skincare ingredients: sunscreen, niacinamide, vitamin C, tranexamic acid, kojic Acid, hydroquinone, retinoids, and their evidence-based effectiveness
 UI polish for shippability: Brand design and UX polish that includes App icon, logo, colors, and slogans. 
-Phase 5 — GDPR Compliance
+  Phase 5 — GDPR Compliance
 Data privacy is very strong in Switzerland where I live now, so I decided to implement local-only storage instead of cloud, transparent “How SkinR Works” page, and a feature to allow full data deletion
 
 **Evaluation**
 This product is meant to bridge cosmetic and clinical uses. So, experiments and testing were conducted and these include making multiple captures at different times of day, verifying day-over-day score consistency, and validating that pigmentation/redness trends minimally track lighting changes. However, I only have a single-user dataset: me, so it limits model generality. I also found that the lack of segmentation limits ROI (face detection) effectiveness.
-Performance
+
+**Performance**
 Capture speed is slower than expected because it is affected by mirror–Pi power separation. And iPhone 17 Pro used for CV to ensure real-time processing, older iPhone models might not work as fast. In the future, I hope to optimize Pi capture latency by LED→camera synchronization.
-Future Iterations
+
+**Future Iterations**
 Future iterations are encouraged post-class to productize this project. These include, without specific timelines:
-Hardware iterations
-Custom-built one-way mirror with central camera port, NOIR camera + UVA 365 nm LEDs, NIR illumination (850/940 nm), Multispectral sensors, Battery-powered portable redesign, and possibly custom PCB for mass production
-Software iterations
-True face ROI detection, replacing deterministic CV with hybrid ML models, faster Pi capture pipeline, and LLM-based skincare consultation feature, and definitely more research-based ingredients. 
+  Hardware iterations - Custom-built one-way mirror with central camera port, NOIR camera + UVA 365 nm LEDs, NIR illumination (850/940 nm), Multispectral sensors, Battery-powered portable redesign, and possibly custom PCB for mass production
+  Software iterations - True face ROI detection, replacing deterministic CV with hybrid ML models, faster Pi capture pipeline, and LLM-based skincare consultation feature, and definitely more research-based ingredients. 
 
 **Conclusion**
 This project succeeded in producing a working end-to-end core IoT prototype:

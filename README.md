@@ -2,12 +2,6 @@
 
 **Author:** Jimmy Burhan
 **Project Type:** IoT · Computer Vision · iOS Application  
-
-**Demo Videos:**  
-- Hardware Demo  
-- App Demo  
-- Code Demo
-
 ---
 
 ## Introduction
